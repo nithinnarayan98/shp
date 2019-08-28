@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>Store</title>
+   
+        <!--custom css-->
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div class="logo">Sublime.</a></div>
+               
+                <!-- Links -->
+                <%for(var i=0;i<nav.length;i++){%>
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%=nav[i].link%>"><%=nav[i].title%></a>
+                    </li>
+                   
+                  </ul>
+                  <%}%>
+                
+                  <!-- Navbar text-->
+                  
+                
+                </nav>
+    
+      
+      <section class="products">
+            <div class="section-title">
+                <h2>Update Products</h2>
+            </div>
+            <div class="products-center">
+                <!-- single product-->
+                    <%for(var i=0;i<products.length;i++){%>
+        <article class="product">
+                <div class="img-container">
+                    <img src="/prod/view/<%= products[i].image %>" alt="product" class="product-img">
+                    <!-- <button class="bag-btn">
+                            <i class="fas fa-arrow-circle-right"></i>
+                        View Product
+                    </button> -->
+                    <a href="/prod/editproduct/<%=products[i].id%>" class="bag-btn" style="text-decoration: none; width:182.13px"> <i class="fas fa-arrow-circle-right"></i>&nbsp;&nbsp;Edit </a>
+                    <a href="/prod/deleteproduct/<%=products[i].id%>" class="dlt-btn" style="text-decoration: none"> <i class="fas fa-arrow-circle-right"></i>&nbsp;&nbsp;Delete </a>
+                </div>
+                <h3><%=products[i].title%></h3>
+                <h4>$<%=products[i].price%></h4>
+            </article>
+            <%}%>
+            <!-- end of single product-->
+            </div>
+            
+        </section>
+      
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

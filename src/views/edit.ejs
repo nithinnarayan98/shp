@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>Store</title>
+   
+        <!--custom css-->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <nav class="collapse navbar-collapse" role="navigation">
+            
+            <ul class="nav navbar-nav">
+                 
+              <%for(var i=0;i<nav.length;i++){%>
+              <li>
+                <a href="<%=nav[i].link%>" style="color:#222;"><%=nav[i].title%></a>
+              </li>
+              <%}%>
+            
+            </ul>
+            
+            <ul class="nav navbar-right navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#222;"><i class="fas fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu" style="padding:12px;">
+                  <form class="form-inline" >
+                    <a href="" style="color:#222;"><i class="fas fa-shopping-cart"></i>Your Cart</a><br>
+                    <a href="/" style="color:#222;"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log Out</a>
+                  </form>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <div class="container">
+            <div class="row">
+              
+              <div class="col-md-12"> 
+                
+                <div class="panel">
+                  <div class="panel-body">
+                   <form action="/prod/editproduct" method="POST" enctype="multipart/form-data">
+                      <p style="font-size: 30px; text-align: center" id="r">Edit Product</p>
+                      <table class="table addtable" style="width: 600px; margin:auto; border: 2px solid black; border-collapse: collapse;">
+                          <tr>
+                              <td>Title :</td>
+                              <td><input type="text" class="form-control" name="title" value="<%= products[0].title %>" placeholder="Enter Title" required></td>
+                          </tr>
+                          <tr>
+                              <td>ID :</td>
+                              <td><input type="text" class="form-control" name="id" value="<%= products[0].id %>" placeholder="Enter ID" required></td>
+                          </tr>
+          
+                          <tr>
+                              <td>Price :</td>
+                              <td><input type="number" class="form-control" name="price" value="<%= products[0].price %>" placeholder="Enter Price" required></td>
+                          </tr>
+          
+                          <tr>
+                              <td>Image :</td>
+                              <td><input type="file" class="form-control" name="image"  value="<%= products[0].image %>" placeholder="Upload Image" required></td>
+                          </tr>
+                          
+                          <tr style="text-align: left">                        
+                              <td></td>
+                              <td><button class="btn" type="submit" style="width: 150px; color: #222; background: #f09d51;">Update</button></td>
+                          </tr>
+                      </table>
+                   </form>
+                    
+                  </div>
+                </div>
+                                                                                                 
+                                                                                                           
+                 </div>
+            </div>
+          </div>
+      
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
